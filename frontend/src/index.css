@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Bebas Neue", sans-serif;
+  --font-body:    "Syne", sans-serif;
+  --font-mono:    "DM Mono", monospace;
+
+  --color-bg:       #080808;
+  --color-surface:  #101010;
+  --color-card:     #141414;
+  --color-border:   #1e1e1e;
+  --color-border2:  #2a2a2a;
+  --color-accent:   #b8ff35;
+  --color-pink:     #ff3cac;
+  --color-cyan:     #00d4ff;
+  --color-ink:      #ede8df;
+  --color-muted:    #555555;
+  --color-muted2:   #888888;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  min-height: 100vh;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(ellipse 80% 60% at 10% 0%,  rgba(184,255,53,0.045) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 50% at 90% 100%, rgba(255,60,172,0.04)  0%, transparent 70%);
+}
+
+button { font-family: inherit; cursor: none; }
+input  { font-family: inherit; }
+
+/* scrollbar */
+::-webkit-scrollbar       { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--color-border2); border-radius: 2px; }
+
+/* keyframes */
+@keyframes fadeUp  { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:translateY(0); } }
+@keyframes ticker  { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+@keyframes spin    { to   { transform:rotate(360deg); } }
+@keyframes pulse   { 0%,100%{opacity:1} 50%{opacity:0} }
+@keyframes shimmer { from{background-position:-400px 0} to{background-position:400px 0} }
+@keyframes scaleY  { from{transform:scaleY(0)} to{transform:scaleY(1)} }
+@keyframes slideIn { from{transform:translateX(100%)} to{transform:translateX(0)} }
+
+/* utility classes */
+.animate-fadeup  { animation: fadeUp  0.45s ease both; }
+.animate-ticker  { animation: ticker  24s linear infinite; }
+.animate-spin    { animation: spin    0.7s linear infinite; }
+.animate-pulse-dot { animation: pulse 1.2s step-start infinite; }
+
+.skeleton {
+  background: linear-gradient(90deg, var(--color-card) 25%, var(--color-surface) 50%, var(--color-card) 75%);
+  background-size: 400px 100%;
+  animation: shimmer 1.4s infinite;
+  border-radius: 4px;
+}
+
+.accent-bar {
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px; height: 100%;
+  background: var(--color-accent);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.25s ease;
+}
+.group:hover .accent-bar { transform: scaleY(1); }
+
+.drawer-open  { transform: translateX(0);    transition: transform 0.3s cubic-bezier(0.22,1,0.36,1); }
+.drawer-close { transform: translateX(100%); transition: transform 0.3s cubic-bezier(0.22,1,0.36,1); }
