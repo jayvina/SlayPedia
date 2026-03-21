@@ -1,4 +1,4 @@
-const BASE = "/api";
+const BASE = "https://slay-pedia-j9t5.vercel.app/api";
 
 async function apiFetch(path) {
   const res  = await fetch(`${BASE}${path}`);
