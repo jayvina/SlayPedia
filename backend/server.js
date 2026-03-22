@@ -9,7 +9,7 @@ app.use(cors({
   origin: [
     "http://localhost:5173",
     "http://localhost:4173",
-    "https://slaypedia.vercel.app",
+    "https://slay-pedia-yjcj.vercel.app",
   ]
 }));
 app.use(express.json());
@@ -280,14 +280,14 @@ app.get("/api/health", async (_req, res) => {
 
 module.exports = app;
 
-app.listen(PORT, () => {
-  console.log(`\n🔥  Slaypedia API  →  http://localhost:${PORT}`);
-  console.log(`   GET  /api/search?q=<word>&limit=<n>`);
-  console.log(`   GET  /api/word/:word`);
-  console.log(`   GET  /api/random`);
-  console.log(`   GET  /api/trending`);
-  console.log(`   GET  /api/health\n`);
-  console.log(`   ✦ Retry: 3 attempts · 8s timeout per request`);
-  console.log(`   ✦ Cache: 5 min TTL`);
-  console.log(`   ✦ Fallback: 20 built-in words when HuggingFace is down\n`);
-});
+// app.listen(PORT, () => {
+//   console.log(`\n🔥  Slaypedia API  →  http://localhost:${PORT}`);
+//   console.log(`   GET  /api/search?q=<word>&limit=<n>`);
+//   console.log(`   GET  /api/word/:word`);
+//   console.log(`   GET  /api/random`);
+//   console.log(`   GET  /api/trending`);
+//   console.log(`   GET  /api/health\n`);
+//   console.log(`   ✦ Retry: 3 attempts · 8s timeout per request`);
+//   console.log(`   ✦ Cache: 5 min TTL`);
+//   console.log(`   ✦ Fallback: 20 built-in words when HuggingFace is down\n`);
+// });
