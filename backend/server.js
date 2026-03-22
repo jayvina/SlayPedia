@@ -10,6 +10,7 @@ app.use(cors({
     "http://localhost:5173",
     "http://localhost:4173",
     "https://slay-pedia-yjcj.vercel.app",
+    "https://slay-pedia-yjcj-mc5omgzk3-jayvinapatel20-6639s-projects.vercel.app"
   ]
 }));
 app.use(express.json());
